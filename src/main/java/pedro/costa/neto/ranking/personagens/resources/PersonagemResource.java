@@ -20,12 +20,6 @@ import pedro.costa.neto.ranking.personagens.services.PersonagemService;
 @RestController
 public class PersonagemResource {
 
-	
-	/* Será apresentado dois personagens diferentes para o usuário selecionar apenas um
-	 * O serviço receberá o personagem selecionado e será calculado o rank com base no calculo Rating Elo
-	 * Será retornado para o usuário a lista dos 10 primeiros personagens
-	 * */
-	
 	@Autowired
 	private PersonagemService servico;
 	
@@ -34,7 +28,6 @@ public class PersonagemResource {
 		List<Personagem> personagens = servico.buscarTodos();
 		return new ResponseEntity<>(personagens, HttpStatus.OK);
 	}
-	
 	
 	@PostMapping(value = "/personagem")
 	public ResponseEntity<String> salvar(@RequestBody Personagem obj) {
@@ -48,9 +41,7 @@ public class PersonagemResource {
 		servico.salvarOuAtualizar(obj);
 		return new ResponseEntity<>("Personagem atualizado!", HttpStatus.OK);
 	}
-	
 
-	
 	@DeleteMapping(value = "/personagem/{codigo}")
 	public ResponseEntity<String> excluir(@PathVariable UUID codigo) {
 		servico.excluir(codigo);
