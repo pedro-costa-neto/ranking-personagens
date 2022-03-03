@@ -13,4 +13,7 @@ public interface PersonagemRepository extends JpaRepository<Personagem, UUID> {
 	
 	@Query(value = "SELECT * FROM Personagem p ORDER BY RANDOM() LIMIT :limite", nativeQuery = true)
 	public List<Personagem> obterPersonagensAleatorios(@Param("limite") int limite);
+	
+	@Query(value = "SELECT p FROM Personagem p ORDER BY p.classificacao DESC")
+	public List<Personagem> obterRanking();
 }

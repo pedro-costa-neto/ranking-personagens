@@ -27,6 +27,10 @@ public class PersonagemService {
 		return repositorio.obterPersonagensAleatorios(limite);
 	}
 	
+	public List<Personagem> obterRanking() {
+		return repositorio.obterRanking();
+	}
+	
 	public void salvarOuAtualizar(Personagem obj) {
 		repositorio.save(obj);
 	}

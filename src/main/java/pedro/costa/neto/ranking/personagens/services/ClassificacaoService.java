@@ -17,6 +17,10 @@ public class ClassificacaoService {
 	public List<Personagem> obterPersonagens() {
 		return personagemService.obterPersonagensAleatorios(2);
 	}
+	
+	public List<Personagem> obterRanking() {
+		return personagemService.obterRanking();
+	}
 
 	public void classificar(UUID codigoClassificado, UUID codigoNaoClassificado) {
 		var personagemA = personagemService.buscarPorCodigo(codigoClassificado);

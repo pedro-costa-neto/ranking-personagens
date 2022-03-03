@@ -26,6 +26,12 @@ public class ClassificacaoResource {
 		return new ResponseEntity<>(personagens, HttpStatus.OK);
 	}
 	
+	@GetMapping(path = "/ranking")
+	public ResponseEntity<List<Personagem>> ranking() {
+		List<Personagem> personagens = servico.obterRanking();
+		return new ResponseEntity<>(personagens, HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<String> salvar(
 			@RequestParam(value="classificado") UUID codClassificado,
